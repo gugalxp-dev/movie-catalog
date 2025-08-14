@@ -85,7 +85,11 @@ cd movie-catalog
 VITE_API_BASE_URL=http://localhost:8000/api
 ```
 
-#### No Backend (`backend/.env`)
+#### No Backend (`backend/.env.exemple`)
+ - Renomeie ```.env.exemple``` para ```.env```
+  
+Em seguida, faça as seguintes mudanças:
+
 ```bash
 TMDB_API_KEY=sua_chave_aqui
 DB_CONNECTION=mysql
@@ -99,6 +103,11 @@ DB_PASSWORD=a90f4beccbfcb567812eb08c292
 ### 3. Suba os containers
 ```bash
 docker-compose up -d --build
+```
+
+#### Em seguida, gere a *APP_KEY* do Laravel:
+```
+ docker exec -it laravel-app php artisan key:generate
 ```
 
 ### 4. Execute as migrations
