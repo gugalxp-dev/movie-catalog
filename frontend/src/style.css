@@ -6,9 +6,12 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, #1a0b2e 0%, #000000 25%, #4c0f60 50%, #000000 75%, #000000 100%);
+  background-image: linear-gradient(135deg, #1a0b2ee8 0%, #000000 25%, #4c0f60b0 50%, #000000 75%, #000000 100%), url(/public/banner-avengers.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   min-height: 100vh;
-  color: #333;
+  color: #fff;
 }
 
 #app {

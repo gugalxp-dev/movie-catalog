@@ -68,6 +68,7 @@ export const useMoviesStore = defineStore('movies', {
     async loadNowPlayingMovies() {
       try {
         const response = await movieService.getNowPlayingMovies()
+        console.log(response);
         
         if (response.success) {
           this.nowPlayingMovies = response.data || []

@@ -123,7 +123,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useMoviesStore } from '../stores/movies'
 import MovieCard from '../components/MovieCard.vue'
 
@@ -150,8 +150,17 @@ export default {
     const totalPages = computed(() => moviesStore.totalPages)
     const searchQueryDisplay = computed(() => moviesStore.searchQuery)
 
+    watch(searchQuery, (newValue) => {
+      if (!newValue.trim()) {
+        moviesStore.clearSearch()
+      }
+    })
+
     const performSearch = async () => {
-      if (!searchQuery.value.trim()) return
+      if (!searchQuery.value.trim()) {
+        moviesStore.clearSearch()
+        return
+      }
 
       await moviesStore.searchMovies(searchQuery.value.trim(), 1)
     }
@@ -183,11 +192,10 @@ export default {
     }
 
     onMounted(() => {
-      moviesStore.loadNowPlayingMovies();
+      moviesStore.loadNowPlayingMovies()
       if (moviesStore.genres.length === 0) {
         moviesStore.loadGenres()
       }
-      // Carregar favoritos para atualizar os ícones
       moviesStore.loadFavorites()
     })
 
@@ -234,7 +242,6 @@ export default {
 
 .home {
   min-height: calc(100vh - 80px);
-  background: linear-gradient(135deg, #1a0b2e 0%, #000000 25%, #4c0f60 50%, #000000 75%, #000000 100%);
 }
 
 .hero {
