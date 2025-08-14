@@ -73,25 +73,29 @@ Para usar a aplicação, você precisa de uma chave da API do TMDB. Siga os pass
 - Git instalado
 
 ### 1. Clone o repositório
+
+git clone [https://github.com/gugalxp-dev/movie-catalog.git](https://github.com/gugalxp-dev/movie-catalog.git)
+
 ```bash
-git clone <url-do-repositorio>
 cd movie-catalog
 ```
-
 ### 2. Configure as variáveis de ambiente
 
-#### No Frontend (`frontend/.env`)
+#### No Frontend, acesse (`frontend/.env`)
 ```bash
 VITE_API_BASE_URL=http://localhost:8000/api
 ```
 
-#### No Backend (`backend/.env.exemple`)
+#### No Backend, acesse (`backend/.env.exemple`)
  - Renomeie ```.env.exemple``` para ```.env```
   
 Em seguida, faça as seguintes mudanças:
 
 ```bash
-TMDB_API_KEY=sua_chave_aqui
+# TMDB Key
+TMDB_API_KEY=sua_chave_TMDB_aqui
+
+# Credenciais DB
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
