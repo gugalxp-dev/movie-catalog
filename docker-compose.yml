@@ -13,8 +13,6 @@ services:
       - /var/www/vendor
     ports:
       - "8000:8000"
-    env_file:
-      - ./docker.env
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db
@@ -26,8 +24,6 @@ services:
     image: mysql:8.0
     container_name: mysql-db
     restart: unless-stopped
-    env_file:
-      - ./docker.env
     environment:
       MYSQL_ROOT_PASSWORD: a90f4beccbfcb567812eb08c292
       MYSQL_DATABASE: movie_catalog
@@ -43,8 +39,6 @@ services:
     environment:
       - PMA_HOST=db
       - PMA_PORT=3306
-    env_file:
-      - ./docker.env
     ports:
       - "8080:80"
     depends_on:
